@@ -15,7 +15,7 @@
  */
 class Solution {
     /**
-     * Approach : Using DFS Inorder Traversal (Left Node Right) Approach
+     * Approach : Using DFS In-order Traversal (Left Node Right) Approach
      *
      * TC : O(n)
      * SC : O(h) (O(n) in worst case in case of skewed tree)
@@ -27,7 +27,7 @@ class Solution {
     }
 
     /**
-     * Using DFS Inorder Traversal (Left Node Right) Approach
+     * Using DFS In-order Traversal (Left Node Right) Approach
      *
      * TC : O(n)
      * SC : O(h)
