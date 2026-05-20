@@ -17,33 +17,28 @@ class Solution {
     /**
      * Approach : Using DFS Approach
      *
-     * TC : O(n²)
-     * SC : O(h)
+     * TC : O(n)
+     * SC : O(h) ~ O(n) in worst case if tree is a skewed tree
      */
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        return dfsTree(root, subRoot);
-    }
-
-    /**
-     * Using DFS Approach
-     *
-     * TC : O(n²)
-     * SC : O(h)
-     */
-    private boolean dfsTree(TreeNode root, TreeNode subRoot) {
         // Base Case
         if (root == null) {
             // subRoot cannot be sub-tree of root
             return false;
         }
-        boolean isCurrentNodeSame = 
-            isSameTree(root, subRoot); // TC : O(n), SC : O(n)
+        if (isSameTree(root, subRoot)) { // TC : O(n), SC : O(n)
+            return true;
+        }
         /**
          * we need to perform DFS from both child nodes
          */
-        boolean isLeftSubTree = dfsTree(root.left, subRoot);
-        boolean isRightSubTree = dfsTree(root.right, subRoot);
-        return isCurrentNodeSame || isLeftSubTree || isRightSubTree;
+        if (isSubtree(root.left, subRoot)) {
+            return true;
+        }
+        if (isSubtree(root.right, subRoot)) {
+            return true;
+        }
+        return false;
     }
 
     /**
