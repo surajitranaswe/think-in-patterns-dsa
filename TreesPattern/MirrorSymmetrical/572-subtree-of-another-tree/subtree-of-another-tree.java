@@ -17,7 +17,7 @@ class Solution {
     /**
      * Approach : Using DFS Approach
      *
-     * TC : O(n)
+     * TC : O(m x n)
      * SC : O(h) ~ O(n) in worst case if tree is a skewed tree
      */
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
