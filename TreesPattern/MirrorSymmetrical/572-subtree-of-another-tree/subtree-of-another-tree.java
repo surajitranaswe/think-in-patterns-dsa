@@ -32,15 +32,11 @@ class Solution {
      */
     private boolean dfsTree(TreeNode root, TreeNode subRoot) {
         // Base Case
-        if (root == null && subRoot == null) {
-            // if both TreeNodes are null then subRoot is the sub-tree of root
-            return true;
-        }
-        if (root == null || subRoot == null) {
-            // if any of TreeNodes is null then subRoot cannot be sub-tree of root
+        if (root == null) {
+            // subRoot cannot be sub-tree of root
             return false;
         }
-        boolean isCurrentNodeSame = root.val == subRoot.val &&
+        boolean isCurrentNodeSame = 
             isSameTree(root, subRoot); // TC : O(n), SC : O(n)
         /**
          * we need to perform DFS from both child nodes
