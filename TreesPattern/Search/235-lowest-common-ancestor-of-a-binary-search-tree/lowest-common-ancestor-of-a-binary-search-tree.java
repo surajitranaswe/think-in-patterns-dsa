@@ -16,7 +16,11 @@ class Solution {
      * SC : O(log(n)) 
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        return dfsBST(root, p, q);
+        if (p.val < q.val) {
+            return dfsBST(root, p, q);
+        } else {
+            return dfsBST(root, q, p);
+        }
     }
 
     /**
