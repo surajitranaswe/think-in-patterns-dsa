@@ -8,6 +8,9 @@ class Solution {
     public int strStr(String haystack, String needle) {
         int m = haystack.length();
         int n = needle.length();
+        if (n == 0) {
+            return 0;
+        }
         int[] lps = new int[n];          // SC : O(n)
         computeLPSArray(needle, n, lps); // TC : O(n)
         // Using Two-Pointers Approach
