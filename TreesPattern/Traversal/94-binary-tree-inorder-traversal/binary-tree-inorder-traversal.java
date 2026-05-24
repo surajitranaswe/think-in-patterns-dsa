@@ -21,9 +21,9 @@ class Solution {
      * SC : O(h) (O(n) in worst case in case of skewed tree)
      */
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        dfsTree(root, result);
-        return result;
+        List<Integer> inorder = new ArrayList<>();
+        dfsTree(root, inorder);
+        return inorder;
     }
 
     /**
@@ -32,14 +32,14 @@ class Solution {
      * TC : O(n)
      * SC : O(h)
      */
-    private void dfsTree(TreeNode node, List<Integer> result) {
+    private void dfsTree(TreeNode root, List<Integer> inorder) {
         // Base Case
-        if (node == null) {
+        if (root == null) {
             return;
         }
         // Recursion Calls
-        dfsTree(node.left, result);
-        result.add(node.val);
-        dfsTree(node.right, result);
+        dfsTree(root.left, inorder);
+        inorder.add(root.val);
+        dfsTree(root.right, inorder);
     }
 }
