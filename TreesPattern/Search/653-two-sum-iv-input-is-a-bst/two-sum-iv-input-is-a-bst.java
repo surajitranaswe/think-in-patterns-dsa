@@ -15,12 +15,44 @@
  */
 class Solution {
     /**
+     * Approach II : Using Better (Hashing + Recursion) Approach
+     *
+     * TC : O(n)
+     * SC : O(h) + O(n) ~ O(n)
+     */
+    public boolean findTarget(TreeNode root, int k) {
+        Set<Integer> set = new HashSet<>(); // SC : O(n)
+        return solve(root, k, set); // TC : O(n), SC : O(h)
+    }
+
+    /**
+     * Using Recursion Approach
+     *
+     * TC : O(n)
+     * SC : O(h)
+     */
+    private boolean solve(TreeNode root, int k, Set<Integer> set) {
+        // Base Case
+        if (root == null) {
+            return false;
+        }
+        if (set.contains(k - root.val)) {
+            return true;
+        }
+        // Recursion Calls
+        set.add(root.val);
+        boolean left = solve(root.left, k, set);
+        boolean right = solve(root.right, k, set);
+        return left || right;
+    }
+
+    /**
      * Approach I : Using Brute-Force (Two Pointers + DFS Inorder Traversal) Approach
      *
      * TC : O(n)
      * SC : O(h)
      */
-    public boolean findTarget(TreeNode root, int k) {
+    public boolean findTargetBruteForce(TreeNode root, int k) {
         List<Integer> inorder = new ArrayList<>();
         // inorder traversal of BST gives us nodes in sorted order of values
         dfsTree(root, inorder);
