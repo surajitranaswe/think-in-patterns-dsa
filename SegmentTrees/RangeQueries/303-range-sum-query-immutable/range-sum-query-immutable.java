@@ -2,9 +2,11 @@
  * Approach II : Using Segment Tree Approach
  *
  * TC : O(n) + O(q x log(n))
- * - O(n) for prefixSum formation
- * - O(q x log(n)) for all queries execution
- * SC : O(n) + O(q x log(n))
+ *      - O(n) for prefixSum formation
+ *      - O(q x log(n)) for all queries execution
+ * SC : O(n) + O(log(n))
+ *      - O(n) - segTree construction
+ *      - O(log(n)) - recursion stack space
  */
 class NumArray {
     private int n;
