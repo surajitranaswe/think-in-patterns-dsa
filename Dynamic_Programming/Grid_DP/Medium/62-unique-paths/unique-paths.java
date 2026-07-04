@@ -1,11 +1,33 @@
 class Solution {
     /**
+     * Approach II : Using Space Optimization (Optimized DP) Approach
+     *
+     * TC : O(m x n)
+     * SC : O(n) + O(n) ~ O(n)
+     */
+    public int uniquePaths(int m, int n) {
+        int[] prev = new int[n];        // SC : O(n)
+        for (int j = 0; j < n; j++) {   // TC : O(n)
+            prev[j] = 1;
+        }
+        for (int i = 1; i < m; i++) {   // TC : O(m)
+            int[] current = new int[n]; // SC : O(n)
+            current[0] = 1;
+            for (int j = 1; j < n; j++) { // TC : O(n)
+                current[j] = prev[j] + current[j - 1];
+            }
+            prev = current.clone();
+        }
+        return prev[n - 1];
+    }
+
+    /**
      * Approach I : Using Tabulation (Bottom-Up) Approach
      *
      * TC : O(m x n)
      * SC : O(m x n)
      */
-    public int uniquePaths(int m, int n) {
+    public int uniquePathsTabulation(int m, int n) {
         int[][] dp = new int[m][n]; // SC : O(m x n)
         /**
          * dp[i][j] denotes count of unique paths
