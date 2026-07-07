@@ -1,11 +1,32 @@
 class Solution {
     /**
+     * Approach : Using Optimized DP Approach
+     *
+     * TC : O(n)
+     * SC : O(1)
+     */
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        if (n < 2) {
+            return 0;
+        }
+        int prev2 = 0;
+        int prev = 0;
+        for (int i = 2; i <= n; i++) { // TC : O(n)
+            int current = Math.min(cost[i - 1] + prev, cost[i - 2] + prev2);
+            prev2 = prev;
+            prev = current;
+        }
+        return prev;
+    }
+
+    /**
      * Approach : Using Top-Down DP Approach
      *
      * TC : O(n)
      * SC : O(n)
      */
-    public int minCostClimbingStairs(int[] cost) {
+    public int minCostClimbingStairsTabulation(int[] cost) {
         int n = cost.length;
         int[] dp = new int[n + 1]; // SC : O(n)
         /**
