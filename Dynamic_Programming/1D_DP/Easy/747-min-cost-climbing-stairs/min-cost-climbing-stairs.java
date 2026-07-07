@@ -1,6 +1,6 @@
 class Solution {
     /**
-     * Approach : Using Optimized DP Approach
+     * Approach II : Using Optimized DP Approach
      *
      * TC : O(n)
      * SC : O(1)
@@ -21,7 +21,7 @@ class Solution {
     }
 
     /**
-     * Approach : Using Top-Down DP Approach
+     * Approach I : Using Top-Down DP Approach
      *
      * TC : O(n)
      * SC : O(n)
