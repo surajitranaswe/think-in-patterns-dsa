@@ -1,11 +1,31 @@
 class Solution {
     /**
-     * Approach : Using Top-Down DP Approach
+     * Approach II : Using Optimized DP Approach
+     *
+     * TC : O(n)
+     * SC : O(1)
+     */
+    public int climbStairs(int n) {
+        if (n <= 1) {
+            return 1;
+        }
+        int prev2 = 1;
+        int prev = 1;
+        for (int i = 2; i <= n; i++) { // TC : O(n)
+            int current = prev + prev2;
+            prev2 = prev;
+            prev = current;
+        }
+        return prev;
+    }
+
+    /**
+     * Approach I : Using Top-Down DP Approach
      *
      * TC : O(n)
      * SC : O(n)
      */
-    public int climbStairs(int n) {
+    public int climbStairsTabulation(int n) {
         int[] dp = new int[n + 1]; // SC : O(n)
         /**
          * dp[i] = total ways to reach ith step
